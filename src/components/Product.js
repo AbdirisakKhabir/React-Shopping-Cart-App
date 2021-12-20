@@ -1,22 +1,38 @@
-import React,{useContext} from 'react';
+import React,{ useContext } from 'react';
 import { shoppingContext } from '../App';
+
+
 const Product = () => {
 	
 const shopping = useContext(shoppingContext)
 
-console.log(shopping)
+console.log("MyShopping",shopping)
 	return (
+	
 		<div className="product">
-			<img src={shopping.image} alt={`${shopping.title} book`} />
+		
 
-			<h1 className="title">{shopping.title}</h1>
+			
+						
+				<img src={shopping.image} alt={`${shopping.products.title} book`} />
 
-			<p className="price">${shopping.price}</p>
+					<h1 className="title">{shopping.products.title}</h1>
 
-			<button onClick={() => shopping.product.addItem(shopping.product)}>
-				Add to cart
-			</button>
+					<p className="price">${shopping.products.price}</p>
+
+					<button onClick={() => shopping.products.product.addItem(shopping.products.product)}>
+					Add to cart
+						</button>
+					
+						
+					
+		
+
+				
 		</div>
+			
+		
+		
 	);
 };
 

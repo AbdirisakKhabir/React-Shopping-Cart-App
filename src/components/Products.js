@@ -4,12 +4,12 @@ import { shoppingContext } from '../App';
 import Product from './Product';
 
 
-const Products = props => {
+const Products = () => {
 	const shopping = useContext(shoppingContext)
 	
 	return (
 		<div className="products-container">
-			{shopping.map(product => (
+			{/* {shopping.map(product => (
 				
 				<Product
 					key={product.id}
@@ -17,7 +17,8 @@ const Products = props => {
 					addItem={shopping.addItem}
 				/>
 				
-			))}
+			))} */}
+			<Product />
 		</div>
 	);
 };

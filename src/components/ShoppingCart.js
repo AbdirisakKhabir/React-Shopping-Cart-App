@@ -4,8 +4,9 @@ import React,{useContext} from 'react';
 import Item from './ShoppingCartItem';
 import { shoppingContext } from '../App';
 
-const ShoppingCart = () => {
+ 	const ShoppingCart = () => {
 	const shopping = useContext(shoppingContext)
+	console.log("Mxd haysa",shopping)
 	const getCartTotal = () => {
 		return shopping.cart.reduce((acc, value) => {
 			return acc + value.price;
