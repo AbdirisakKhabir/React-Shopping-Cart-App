@@ -11,18 +11,22 @@ console.log("MyShopping",shopping)
 	
 		<div className="product">
 		
+  {shopping.products.map(oneProduct => (
+	  <div>
+	<img src={oneProduct.image} alt={`${oneProduct.title} book`} />
 
+<h1 className="title">{oneProduct.title}</h1>
+
+<p className="price">${oneProduct.price}</p>
+
+<button onClick={() => oneProduct.addItem(oneProduct.product)}>
+Add to cart
+	</button>
+	</div>
+  ))}
 			
 						
-				<img src={shopping.image} alt={`${shopping.products.title} book`} />
-
-					<h1 className="title">{shopping.products.title}</h1>
-
-					<p className="price">${shopping.products.price}</p>
-
-					<button onClick={() => shopping.products.product.addItem(shopping.products.product)}>
-					Add to cart
-						</button>
+				
 					
 						
 					

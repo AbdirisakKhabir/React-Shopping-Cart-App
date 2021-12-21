@@ -8,19 +8,22 @@ import Products from './components/Products';
 import ShoppingCart from './components/ShoppingCart';
 
 export const shoppingContext = createContext();
-
+export const cartsContext = createContext()
 
 function App() {
 	const [products] = useState(data);
-	const [cart, setCart] = useState(products);
+	const [cart, setCart] = useState([]);
 	
 	const addItem = item => {
-		// add the given item to the cart
+		if(!cart.find(cardItem => cardItem.id === item.id)){
+            setCart([...cart, item])
+        }
 	};
 
 	return (
 		<div className="App">
 			<shoppingContext.Provider value={{products, addItem}}>
+				<cartsContext.Provider value={cart}>
 			<Navigation  />
 
 			{/* Routes */}
@@ -31,7 +34,9 @@ function App() {
 			<Route path="/cart">
 				<ShoppingCart />
 			</Route>
+			</cartsContext.Provider>
 			</shoppingContext.Provider>
+			
 		</div>
 	);
 }
